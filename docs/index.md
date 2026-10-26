@@ -6,7 +6,7 @@ hide:
 
 <div class="hero" markdown>
 
-# Kubernetes : déployer ses applications facilement et de manière fiable
+# Kubernetes : Comment déployer facilement ses applications avec fiabilité ? 
 
 Formation ENSAI · Hugo Simon
 

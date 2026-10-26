@@ -4,7 +4,7 @@
 site_name: Kubernetes · ENSAI
 site_description: Déployer ses applications facilement et de manière fiable avec Docker et Kubernetes
 site_author: Hugo Simon
-copyright: Formation ENSAI · 2025-2026
+copyright: Formation ENSAI · 2026
 
 # Les diapos Marp sont générées dans site/slides/ par build.sh :
 # des URL « fichier.html » simples gardent les liens relatifs valides.
