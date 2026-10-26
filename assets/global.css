@@ -1,0 +1,30 @@
+.no_header header {
+    display: none;
+}
+
+header img {
+    padding: 0.5em;
+    width: 10%;
+}
+
+.no_footer footer {
+    display: none;
+}
+
+.columns {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+}
+
+img[alt~="center"] {
+  display: block;
+  margin: 0 auto;
+}
+
+section.centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }

@@ -1,0 +1,97 @@
+# Site du cours : pages de TP (MkDocs Material) + diapositives Marp
+# Construction complète : ./build.sh  (voir README.md)
+
+site_name: Kubernetes · ENSAI
+site_description: Déployer ses applications facilement et de manière fiable avec Docker et Kubernetes
+site_author: Hugo Simon
+copyright: Formation ENSAI · 2025-2026
+
+# Les diapos Marp sont générées dans site/slides/ par build.sh :
+# des URL « fichier.html » simples gardent les liens relatifs valides.
+use_directory_urls: false
+
+docs_dir: docs
+
+theme:
+  name: material
+  language: fr
+  font:
+    text: Source Sans 3
+    code: JetBrains Mono
+  icon:
+    logo: material/ferry
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Passer en mode sombre
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Passer en mode clair
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - toc.follow
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Accueil: index.md
+  - Cours: cours.md
+  - TP:
+      - tps/index.md
+      - "TP 1 · Conteneurisation": tps/1_docker.md
+      - "TP 2 · Premiers pas": tps/2_premiers_pas_kube.md
+      - "TP 3 · Exposition": tps/3_exposition_application.md
+      - "TP 4 · Persistance": tps/4_gestion_de_la_persistance.md
+      - "TP 5 · Mises à jour": tps/5_mise_a_jour_application.md
+      - "TP 6 · Amélioration": tps/6_amelioration_application.md
+      - "TP 7 · Helm": tps/7_helm.md
+      - "TP 8 · Autoscaling": tps/8_hpa.md
+  - Debug labs:
+      - "Lab 1 · Service": tps/debug_lab_1_service.md
+      - "Lab 2 · PostgreSQL": tps/debug_lab_2_postgresql.md
+  - Ressources: ressources.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      title: Sur cette page
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.keys
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+validation:
+  # Les liens vers slides/*.html visent des fichiers générés hors de docs/
+  links:
+    not_found: info
+    unrecognized_links: info

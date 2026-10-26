@@ -1,0 +1,12 @@
+.dark {
+    background-color: #2a2828 !important;
+    color: #ffffff !important;
+}
+
+.dark h1 {
+  color: #ffffff !important;
+}
+
+.dark header img{
+  background-color: #ffffff !important;
+}

@@ -1,0 +1,416 @@
+/* @theme cours
+ *
+ * Thème Marp sobre pour les cours d'informatique (Docker / Kubernetes).
+ * Usage : `theme: cours` dans le front-matter.
+ *
+ * Classes de diapositive (<!-- _class: ... -->) :
+ *   lead      → page de titre
+ *   divider   → intercalaire de chapitre (fond sombre)
+ *   centered  → contenu centré (question, phrase choc)
+ *   cards     → la liste de premier niveau devient une grille de cartes
+ *   steps     → la liste numérotée devient une frise d'étapes
+ *   grid-4    → liste en grille de 4 colonnes (ex. 12 factors)
+ *   checklist → liste à cocher
+ *   compact   → texte légèrement réduit pour les diapos denses
+ *   code-sm   → blocs de code plus petits (longs manifests YAML)
+ *   tp        → diapo « à vous de jouer » qui renvoie vers un TP
+ *   demo      → animation HTML en iframe (export HTML : marp --html)
+ *   reveal-N  → avec `cards` : révèle les cartes une à une (voir fin de fichier)
+ *
+ * Blocs :
+ *   > citation        → encadré « à retenir »
+ *   `code` / ```bloc``` → police monospace, fond neutre
+ */
+
+@import 'default';
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+  --ink: #1f2933;
+  --muted: #616e7c;
+  --line: #e4e7eb;
+  --soft: #f5f7fa;
+  --accent: #326ce5;        /* bleu Kubernetes */
+  --accent-soft: #eaf0fc;
+  --dark: #17202a;
+  --font: 'Source Sans 3', 'Segoe UI', Helvetica, Arial, sans-serif;
+  --mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+}
+
+/* ---------- Base ---------- */
+
+section {
+  width: 1280px;
+  height: 720px;
+  padding: 72px 88px 64px;
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 28px;
+  line-height: 1.45;
+  justify-content: flex-start;
+}
+
+section::after { /* pagination « 03 / 15 » */
+  content: attr(data-marpit-pagination) ' / ' attr(data-marpit-pagination-total);
+  font-family: var(--mono);
+  font-size: 15px;
+  color: var(--muted);
+  right: 88px;
+  bottom: 28px;
+  padding: 0;
+}
+
+header,
+footer {
+  font-family: var(--mono);
+  font-size: 15px;
+  color: var(--muted);
+  left: 88px;
+  right: auto;
+  padding: 0;
+}
+header { top: 30px; text-transform: uppercase; letter-spacing: 0.08em; }
+header::before { content: '# '; color: var(--accent); }
+footer { bottom: 28px; }
+
+/* ---------- Titres ---------- */
+
+h1, h2, h3 {
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 0.6em;
+}
+h1 { font-size: 56px; letter-spacing: -0.01em; }
+h2 { font-size: 42px; }
+h2::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 4px;
+  margin-top: 16px;
+  background: var(--accent);
+}
+h3 { font-size: 32px; color: var(--accent); }
+
+strong { color: var(--ink); font-weight: 700; }
+em { color: var(--muted); }
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; }
+
+/* ---------- Listes ---------- */
+
+ul, ol { padding-left: 1.1em; margin: 0.2em 0; }
+li { margin: 0.35em 0; }
+li::marker { color: var(--accent); }
+ol > li::marker { font-family: var(--mono); font-weight: 600; }
+
+/* ---------- Code ---------- */
+
+code {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+  color: var(--ink);
+}
+pre {
+  background: var(--dark);
+  border-radius: 6px;
+  padding: 20px 24px;
+  font-size: 22px;
+  line-height: 1.35;
+}
+pre code { background: none; border: 0; padding: 0; color: #e4e7eb; }
+
+/* ---------- Encadré « à retenir » ---------- */
+
+blockquote {
+  margin: 1em 0 0;
+  padding: 16px 24px;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-size: 0.9em;
+}
+blockquote p { margin: 0; }
+
+/* ---------- Tableaux ---------- */
+
+table { border-collapse: collapse; width: 100%; font-size: 23px; }
+table th, table td { border: 0; border-bottom: 1px solid var(--line); padding: 12px 16px; text-align: left; background: transparent; }
+table th { font-weight: 700; border-bottom: 2px solid var(--ink); }
+table tr:nth-child(2n) td { background: transparent; }
+table td:first-child { font-weight: 600; }
+
+/* ---------- Images ---------- */
+
+img { background: transparent; }
+img[alt~='center'] { display: block; margin: 0 auto; }
+.caption, p.caption { font-size: 18px; color: var(--muted); text-align: center; }
+
+/* ======================================================
+   Classes de diapositives
+   ====================================================== */
+
+/* Page de titre */
+section.lead {
+  justify-content: center;
+  padding-left: 120px;
+  background:
+    linear-gradient(90deg, var(--accent) 0 12px, transparent 12px),
+    radial-gradient(circle, #d9dee5 1px, transparent 1.2px) 0 0 / 28px 28px,
+    #fff;
+}
+section.lead h1 { font-size: 60px; max-width: 900px; margin-bottom: 0.4em; }
+section.lead h1::after { display: none; }
+section.lead p { color: var(--muted); font-size: 26px; margin: 0.2em 0; }
+section.lead code {
+  display: inline-block;
+  margin-top: 1.2em;
+  background: var(--dark);
+  border: 0;
+  color: #e4e7eb;
+  padding: 10px 18px;
+  font-size: 20px;
+}
+
+/* Intercalaire de chapitre */
+section.divider {
+  justify-content: center;
+  background: var(--dark);
+  color: #e4e7eb;
+}
+section.divider h1 { color: #fff; font-size: 64px; }
+section.divider h1::after { display: none; }
+section.divider p { color: #9aa5b1; font-size: 26px; }
+section.divider p code { background: transparent; border: 0; color: var(--accent); font-size: 26px; padding: 0; }
+section.divider::after, section.divider header, section.divider footer { color: #616e7c; }
+
+/* Diapo centrée */
+section.centered { justify-content: center; text-align: center; }
+section.centered h1::after, section.centered h2::after { margin-left: auto; margin-right: auto; }
+section.centered p { color: var(--muted); }
+
+/* Grille de cartes : `- **Titre**\` puis le texte */
+section.cards ul,
+section.cards ol {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.4em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  grid-auto-flow: column;
+  gap: 24px;
+}
+section.cards li {
+  margin: 0;
+  padding: 24px 26px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--accent);
+  border-radius: 6px;
+  font-size: 24px;
+  line-height: 1.4;
+}
+section.cards li strong { display: block; font-size: 27px; margin-bottom: 0.35em; }
+section.cards ol { counter-reset: card; }
+section.cards ol > li { counter-increment: card; }
+section.cards ol > li::before {
+  content: counter(card, decimal-leading-zero);
+  display: block;
+  font-family: var(--mono);
+  font-size: 18px;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+/* Frise d'étapes (liste numérotée) */
+section.steps ol {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.8em;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 0;
+  counter-reset: step;
+}
+section.steps ol > li {
+  counter-increment: step;
+  position: relative;
+  margin: 0;
+  padding: 64px 20px 0 0;
+  font-size: 24px;
+  line-height: 1.35;
+}
+section.steps ol > li::before {
+  content: counter(step, decimal-leading-zero);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 17px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+section.steps ol > li::after { /* ligne de liaison */
+  content: '';
+  position: absolute;
+  top: 21px;
+  left: 44px;
+  right: 0;
+  height: 2px;
+  background: var(--line);
+}
+section.steps ol > li:last-child::after { display: none; }
+section.steps ol > li strong { display: block; font-size: 25px; margin-bottom: 0.3em; }
+section.steps ol > li code { font-size: 17px; }
+
+/* Grille 4 colonnes (listes longues) */
+section.grid-4 ol, section.grid-4 ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px 16px;
+  counter-reset: g;
+}
+section.grid-4 li {
+  counter-increment: g;
+  margin: 0;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 21px;
+  line-height: 1.3;
+}
+section.grid-4 li::before {
+  content: counter(g, upper-roman);
+  display: block;
+  font-family: var(--mono);
+  font-size: 15px;
+  color: var(--accent);
+}
+section.grid-4 li em { display: block; font-size: 17px; font-style: normal; font-family: var(--mono); color: var(--accent); margin-top: 2px; }
+section.grid-4 li:has(em) { background: var(--accent-soft); border-color: #c5d5f7; }
+
+/* Liste à cocher */
+section.checklist ul { list-style: none; padding: 0; }
+section.checklist li { padding-left: 1.6em; position: relative; margin: 0.6em 0; }
+section.checklist li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.3em;
+  width: 0.8em;
+  height: 0.8em;
+  border: 2px solid var(--accent);
+  border-radius: 3px;
+}
+
+/* Diapo dense */
+section.compact { font-size: 24px; }
+
+/* Le saut de ligne « \ » après le titre de carte / d'étape est absorbé par le bloc */
+section.cards li > br,
+section.steps ol > li > br { display: none; }
+section.steps ol > li code { display: inline-block; margin-top: 10px; }
+
+/* ---------- Révélation progressive des cartes ----------
+ * Dupliquer la diapo `cards` et ajouter reveal-1, reveal-2… :
+ *   <!-- _class: cards reveal-2 -->
+ * Les cartes déjà vues sont atténuées, celle de l'étape est mise en avant,
+ * les suivantes apparaissent en pointillés (la mise en page ne bouge pas).
+ * Sur la dernière diapo, retirer reveal-N pour tout afficher normalement.
+ */
+section[class*='reveal-'].cards li { position: relative; transition: none; }
+
+section.reveal-1.cards li:nth-child(n+2),
+section.reveal-2.cards li:nth-child(n+3),
+section.reveal-3.cards li:nth-child(n+4),
+section.reveal-4.cards li:nth-child(n+5) {
+  background: transparent;
+  border: 2px dashed var(--line);
+  color: transparent;
+}
+section.reveal-1.cards li:nth-child(n+2) *,
+section.reveal-2.cards li:nth-child(n+3) *,
+section.reveal-3.cards li:nth-child(n+4) *,
+section.reveal-4.cards li:nth-child(n+5) * { color: transparent; }
+
+section.reveal-1.cards li:nth-child(n+2)::after,
+section.reveal-2.cards li:nth-child(n+3)::after,
+section.reveal-3.cards li:nth-child(n+4)::after,
+section.reveal-4.cards li:nth-child(n+5)::after {
+  content: '?';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 48px;
+  color: #cbd2d9;
+}
+
+section.reveal-2.cards li:nth-child(-n+1),
+section.reveal-3.cards li:nth-child(-n+2),
+section.reveal-4.cards li:nth-child(-n+3) {
+  opacity: 0.45;
+  border-top-color: #9aa5b1;
+}
+
+/* ---------- Code compact pour les longs manifests ---------- */
+section.code-sm { padding-top: 56px; }
+section.code-sm pre { font-size: 15px; line-height: 1.3; padding: 14px 22px; }
+section.code-sm h2 { margin-bottom: 0.4em; }
+section.code-sm h2::after { margin-top: 12px; }
+
+/* ---------- Diapo « à vous de jouer » ---------- */
+section.tp {
+  justify-content: center;
+  background:
+    linear-gradient(90deg, var(--accent) 0 12px, transparent 12px),
+    var(--accent-soft);
+}
+section.tp h2 { font-size: 46px; }
+section.tp p { color: var(--muted); }
+section.tp p code {
+  font-size: 20px;
+  background: var(--accent);
+  border: 0;
+  color: #fff;
+  padding: 6px 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Diapo de démo interactive : une animation HTML embarquée en iframe
+ * (export HTML uniquement : marp --html) */
+section.demo { padding: 52px 48px 44px; }
+section.demo h2 { font-size: 36px; margin-bottom: 0.35em; }
+section.demo h2::after { margin-top: 12px; }
+section.demo .demo-frame {
+  display: block;
+  width: 100%;
+  height: 540px;
+  border: 0;
+  background: #fff;
+}
+
+/* ---------- Coloration syntaxique sur fond sombre ----------
+ * Le thème par défaut colore le code avec light-dark() :
+ * on force le schéma sombre dans les blocs pour avoir la palette adaptée. */
+pre { color-scheme: dark; }
+pre code { color: #e4e7eb; }
