@@ -189,13 +189,6 @@ Pour optimiser la construction, il est fondamental de comprendre le fonctionneme
 
 Docker met en cache les layers pour éviter les étapes de reconstruction inutiles.
 
----
-
-## Notion de layers
-
-![width:620px center](assets/layers_model.png)
-
----
 
 <!-- _class: demo -->
 

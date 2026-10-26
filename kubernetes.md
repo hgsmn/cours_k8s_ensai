@@ -145,6 +145,13 @@ Pour ce faire, il utilise le principe de **namespace**.
 
 ---
 
+## Récapitulons 
+
+<iframe class="demo-frame" src="assets/k8s-pod.html" title="Animation : scheduling d'un pod"></iframe>
+
+
+---
+
 <!-- _class: divider -->
 <!-- header: '' -->
 

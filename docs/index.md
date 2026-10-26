@@ -8,9 +8,9 @@ hide:
 
 # Kubernetes : déployer ses applications facilement et de manière fiable
 
-Formation ENSAI · 2025-2026 · Hugo Simon
+Formation ENSAI · Hugo Simon
 
-`$ kubectl apply -f formation.yaml`
+`$ kubectl apply -f learning-k8s.yaml`
 
 </div>
 
@@ -66,7 +66,7 @@ Chaque module associe un cours (diapositives consultables en ligne ou en PDF) et
 
     Architecture, Pods, Deployments, Services, Ingress, ConfigMap, persistance, CRD et opérateurs.
 
-    <span class="links">[:material-presentation: Diapos](slides/kubernetes.html) · [:material-file-pdf-box: PDF](slides/kubernetes.pdf) · [:material-database-outline: Mémo PostgreSQL](slides/postgresql.html)</span>
+    <span class="links">[:material-presentation: Diapos](slides/kubernetes.html) · [:material-file-pdf-box: PDF](slides/kubernetes.pdf) · </span>
 
     <span class="links">[:material-flask-outline: TP 2](tps/2_premiers_pas_kube.md) · [TP 3](tps/3_exposition_application.md) · [TP 4](tps/4_gestion_de_la_persistance.md) · [:material-bug-outline: Debug labs](tps/debug_lab_1_service.md)</span>
 
@@ -86,7 +86,7 @@ Chaque module associe un cours (diapositives consultables en ligne ou en PDF) et
 
     Charts, values, templates, dépendances : industrialiser ses déploiements avec Helm.
 
-    <span class="links">[:material-presentation: Diapos](slides/helm.html) · [:material-file-pdf-box: PDF](slides/helm.pdf) · [:material-flask-outline: TP 7](tps/7_helm.md)</span>
+    <span class="links">[:material-presentation: Diapos](slides/helm.html) · [:material-file-pdf-box: PDF](slides/helm.pdf)  [:material-flask-outline: TP 7](tps/7_helm.md) · [:material-database-outline: Mémo PostgreSQL](slides/postgresql.html) </span>
 
 </div>
 
