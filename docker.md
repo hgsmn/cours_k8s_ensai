@@ -3,7 +3,7 @@ marp: true
 theme: cours
 paginate: true
 title: "Docker : packageons nos applications pour la production"
-footer: 'ENSAI · Docker · 2025-2026'
+footer: 'ENSAI · Docker · 2026'
 ---
 
 <!-- _class: lead -->
@@ -12,7 +12,7 @@ footer: 'ENSAI · Docker · 2025-2026'
 
 # Docker : packageons nos applications pour la production
 
-*Formation ENSAI 2025-2026*
+*Formation ENSAI 2026*
 
 `docker build -t mon-app:1.0 .`
 

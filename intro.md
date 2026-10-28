@@ -2,7 +2,7 @@
 marp: true
 theme: cours
 paginate: true
-footer: 'ENSAI · Kubernetes · 2025-2026'
+footer: 'ENSAI · Kubernetes · 2026'
 ---
 
 <!-- _class: lead -->
@@ -11,7 +11,7 @@ footer: 'ENSAI · Kubernetes · 2025-2026'
 
 # Kubernetes : déployer ses applications facilement et de manière fiable
 
-Formation ENSAI · 2025-2026
+Formation ENSAI · 2026
 Hugo Simon
 
 `$ kubectl apply -f formation.yaml`
@@ -22,10 +22,10 @@ Hugo Simon
 
 ## Qui suis-je ?
 
-- **Hugo Simon** · *rôle / équipe à compléter*
-- Parcours : *à compléter*
-- Au quotidien : *technologies utilisées (Docker, Kubernetes…)*
-- Contact : *à compléter*
+- **Hugo Simon** · *Architecte IA*
+- Parcours : *ML Engineer - Architecte applicatif*
+- Au quotidien : *LLMOps, Kubernetes*
+- Contact : *hugo.simon@insee.fr*
 
 ---
 

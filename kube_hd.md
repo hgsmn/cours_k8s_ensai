@@ -3,7 +3,7 @@ marp: true
 theme: cours
 paginate: true
 title: "Haute disponibilité dans Kubernetes"
-footer: 'ENSAI · Haute disponibilité · 2025-2026'
+footer: 'ENSAI · Haute disponibilité · 2026'
 ---
 
 <!-- _class: lead -->

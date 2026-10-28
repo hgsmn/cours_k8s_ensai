@@ -3,7 +3,7 @@ marp: true
 theme: cours
 paginate: true
 title: "Introduction à Helm"
-footer: 'ENSAI · Helm · 2025-2026'
+footer: 'ENSAI · Helm · 2026'
 ---
 
 <!-- _class: lead -->
@@ -12,7 +12,7 @@ footer: 'ENSAI · Helm · 2025-2026'
 
 # Introduction à Helm
 
-*Formation ENSAI 2025-2026*
+*Formation ENSAI 2026*
 
 `helm upgrade --install mon-app ./chart`
 

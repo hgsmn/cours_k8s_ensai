@@ -3,7 +3,7 @@ marp: true
 theme: cours
 paginate: true
 title: "Mise à jour dans Kubernetes"
-footer: 'ENSAI · Mises à jour · 2025-2026'
+footer: 'ENSAI · Mises à jour · 2026'
 ---
 
 <!-- _class: lead -->

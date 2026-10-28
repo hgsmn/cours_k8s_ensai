@@ -3,7 +3,7 @@ marp: true
 theme: cours
 paginate: true
 title: "Kubernetes pour les développeurs"
-footer: 'ENSAI · Kubernetes · 2025-2026'
+footer: 'ENSAI · Kubernetes · 2026'
 ---
 
 <!-- _class: lead -->
@@ -12,7 +12,7 @@ footer: 'ENSAI · Kubernetes · 2025-2026'
 
 # Kubernetes pour les développeurs
 
-*Formation ENSAI 2025-2026*
+*Formation ENSAI 2026*
 
 `kubectl get pods --all-namespaces`
 
