@@ -57,10 +57,10 @@ Hugo Simon
 
 Le cours est découpé en **modules**, chacun accompagné de **TP** pour pratiquer directement les notions abordées.
 
-- Théorie courte, pratique longue
+- Orienté pratique 
 - Un **compte rendu** à rédiger pour chaque TP
 
-> Les comptes rendus de TP constituent votre **base d'évaluation** sur ce module.
+> Les comptes rendus de TP seront votre **base d'évaluation** sur ce module.
 
 ---
 
