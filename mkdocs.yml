@@ -66,6 +66,7 @@ nav:
   - Debug labs:
       - "Lab 1 · Service": tps/debug_lab_1_service.md
       - "Lab 2 · PostgreSQL": tps/debug_lab_2_postgresql.md
+  - Évaluation: evaluation.md
   - Ressources: ressources.md
 
 markdown_extensions:

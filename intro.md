@@ -60,7 +60,13 @@ Le cours est découpé en **modules**, chacun accompagné de **TP** pour pratiqu
 - Orienté pratique 
 - Un **compte rendu** à rédiger pour chaque TP
 
-> Les comptes rendus de TP seront votre **base d'évaluation** sur ce module.
+---
+
+## Évaluation 
+
+Deux axes seront prise en compte pour l'évaluation : 
+- Les comptes rendus de TP 
+- Des questions posés à chaque fin de TP à l'oral. 
 
 ---
 
