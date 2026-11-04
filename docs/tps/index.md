@@ -20,6 +20,3 @@ Deux exercices de diagnostic, à partir d'une situation cassée :
 - [Lab 1 · Le Service qui perd des requêtes](debug_lab_1_service.md)
 - [Lab 2 · Changement de mot de passe invalide](debug_lab_2_postgresql.md)
 
-!!! abstract "Compte rendu"
-
-    Chaque TP donne lieu à un compte rendu : démarche suivie, commandes utilisées, captures d'écran demandées, difficultés rencontrées et résultats. Ces comptes rendus constituent la base de l'évaluation.
