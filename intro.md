@@ -64,9 +64,9 @@ Le cours est découpé en **modules**, chacun accompagné de **TP** pour pratiqu
 
 ## Évaluation 
 
-Deux axes seront prise en compte pour l'évaluation : 
+Deux axes seront pris en compte pour l'évaluation : 
 - Les comptes rendus de TP 
-- Des questions posés à chaque fin de TP à l'oral. 
+- Des questions posées à chaque fin de TP à l'oral. 
 
 ---
 
