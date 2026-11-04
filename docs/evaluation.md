@@ -16,8 +16,8 @@ L'évaluation repose sur **deux éléments**, répétés à chaque TP :
 Chaque TP donne lieu à un compte rendu, rédigé selon le formalisme ci-dessous. Il n'est pas nécessaire d'être long : une liste de bullet points peut suffir. Afin de faciliter les rendus, vous devez créer un dépôt sur Git. 
 
 Dans ce dépôt :
-- les comptes rendus décrit comme ci-dessous;
-- tous les fichiers permettant la réalisation du TP (manifest k8s, Dockerfile...)
+- les comptes rendus (formalisme décrit ci-dessous) ;
+- tous les fichiers permettant la réalisation du TP (manifest k8s, Dockerfile...). 
 
 ### Formalisme imposé
 
