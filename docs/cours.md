@@ -14,4 +14,4 @@ Les diapositives sont écrites en Markdown avec [Marp](https://marp.app/). Elles
 
 !!! tip "Animation interactive"
 
-    Le cours Docker contient une animation sur le cache des layers : elle n'est interactive que dans la version en ligne.
+    Les animations interactives présentes dans les cours Docker et Kubernetes ne sont accessibles qu'en version "En ligne".
