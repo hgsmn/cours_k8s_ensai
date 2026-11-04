@@ -49,9 +49,23 @@ Ce principe garantit :
 
 ---
 
-## Comment cela fonctionne ?
+## Fonctionnement 
 
 ![width:1000px center](assets/container_vm.png)
+
+---
+
+## Fonctionnement : Cas d'un OS Linux 
+
+![width:1000px center](assets/docker_isolation_linux_slide.png)
+
+---
+
+## Fonctionnement : Cas d'un OS Linux 
+
+- **Namespaces** : le processus a sa propre vue (ses PID, son réseau, ses montages, son hostname)
+- **cgroups** : le noyau plafonne ce qu’il consomme (CPU, mémoire, I/O)
+- **Rootfs en couches** : il a son propre système de fichiers, issu de l’image
 
 ---
 
@@ -201,7 +215,7 @@ Docker met en cache les layers pour éviter les étapes de reconstruction inutil
 
 <!-- _class: centered -->
 
-## Pourquoi c'est une mauvaise pratique ?
+## Application : Pourquoi c'est une mauvaise pratique ?
 
 ```dockerfile
 COPY . /app
