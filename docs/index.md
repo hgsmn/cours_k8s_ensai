@@ -103,8 +103,8 @@ Chaque module associe un cours (diapositives consultables en ligne ou en PDF) et
 
 !!! abstract "Organisation et évaluation"
 
-    Le cours alterne théorie courte et pratique longue. Chaque TP donne lieu à un **compte rendu** (démarche, commandes, difficultés rencontrées, résultats).
+    Le cours alterne théorie courte et pratique longue. Chaque TP donne lieu à un **compte rendu**.
 
-    Les comptes rendus de TP constituent votre **base d'évaluation** sur ce module.
+    **L'évaluation** repose sur les comptes rendus de TP ainsi que sur des questions orales au fil des TP. 
 
 </div>
