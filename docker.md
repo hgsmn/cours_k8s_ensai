@@ -57,7 +57,7 @@ Ce principe garantit :
 
 ## Fonctionnement : Cas d'un OS Linux 
 
-![width:1000px center](assets/docker_isolation_linux_slide.png)
+![center](assets/docker_isolation_linux_slide.png)
 
 ---
 
