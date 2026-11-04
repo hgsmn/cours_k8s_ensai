@@ -6,7 +6,7 @@ L'évaluation repose sur **deux éléments**, répétés à chaque TP :
 
 | Élément | Quand ? | Ce qui est évalué |
 |---|---|---|
-| **Compte rendu de TP** (écrit) | À rendre pour le cours suivant | Ce que vous avez fait, comment, et avec quel résultat |
+| **Compte rendu de TP** (écrit) | À rendre pour le cours suivant | Ma procédure, mes difficultés éventuelles et solutions apportées, mes remarques |
 | **Questions orales** | À la fin de chaque TP | Votre compréhension des notions abordées |
 
 ---
