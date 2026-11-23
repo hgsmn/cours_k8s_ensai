@@ -307,18 +307,6 @@ Déployer trois replicas d'une API Python et la tester sans l'exposer.
 
 ---
 
-<!-- _class: centered -->
-
-## Quelles sont les 7 couches du modèle OSI ?
-
----
-
-<!-- _class: centered -->
-
-## Pas besoin de les connaître pour exposer mon application sur un cluster Kubernetes
-
----
-
 ## Les principaux objets Kubernetes : Service
 
 ![h:450 center](assets/service.gif)
