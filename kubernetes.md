@@ -383,8 +383,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: webapp-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
   - host: webapp.local
