@@ -305,6 +305,9 @@ Déployer trois replicas d'une API Python et la tester sans l'exposer.
 
 ## Comment exposer mon application ?
 
+![h:300 center](assets/deployment.png)
+
+
 ---
 
 ## Les principaux objets Kubernetes : Service
