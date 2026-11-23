@@ -423,7 +423,7 @@ Service, Ingress, puis déploiement d'une application 3 tiers.
 
 ## Configurons nos applications : ConfigMap
 
-Kubernetes propose un objet permettant d'injecter de la configuration en variables d'environnement dans les applications.
+Kubernetes propose un objet permettant d'injecter de la configuration (variables d'environnement ou fichier) dans les applications.
 
 Pour garder de la flexibilité, il est possible d'y mettre :
 - l'URL de la base de données,
