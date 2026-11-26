@@ -168,7 +168,7 @@ On ajoute maintenant CloudNativePG comme **dépendance** du chart, pour que Helm
 
 Quand CNPG crée un cluster PostgreSQL via ce chart, il génère automatiquement :
 
-- une ressource `Cluster` nommée `<release>-cluster`,
+- une ressource `Cluster` nommée `<release>-postgresql` (nom de la release + alias de la dépendance),
 - des **services** pour accéder au cluster,
 - un **secret** contenant les credentials de connexion.
 

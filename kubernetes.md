@@ -399,6 +399,14 @@ spec:
 
 ---
 
+## Résumons
+
+![w:1000 center](assets/full-reseau.svg)
+
+
+
+---
+
 ## Pour aller plus loin : Gateway API
 
 Ingress n'aura plus d'évolution par la communauté Kubernetes : **Gateway API** sera la nouvelle solution à privilégier.
