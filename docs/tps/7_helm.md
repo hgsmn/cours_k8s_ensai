@@ -89,6 +89,8 @@ L'objectif est de créer un chart Helm pour le backend. Le chart ne contiendra q
 
 3. **Supprimer les fichiers inutiles** dans `templates/` : `hpa.yaml`, `serviceaccount.yaml`, `tests/`, `ingress.yaml`. On garde `deployment.yaml`, `service.yaml`, `_helpers.tpl` et `NOTES.txt`.
 
+NB : Il faut faire un nettoyage du NOTES.txt qui sert à afficher un message lors de l'installation du chart. En l'état, il ne fonctionnera plus. 
+
 ### 2.2 Développement du chart
 
 1. Modifier `Chart.yaml` :
