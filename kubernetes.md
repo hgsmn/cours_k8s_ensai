@@ -401,7 +401,7 @@ spec:
 
 ## Résumons
 
-![w:1000 center](assets/full-reseau.svg)
+![center](assets/full-reseau.svg)
 
 
 
