@@ -15,8 +15,9 @@ Les TP s'enchaînent : chacun réutilise ce qui a été construit au précédent
 
 ## Debug labs
 
-Deux exercices de diagnostic, à partir d'une situation cassée :
+Trois exercices de diagnostic, à partir d'une situation cassée :
 
 - [Lab 1 · Le Service qui perd des requêtes](debug_lab_1_service.md)
 - [Lab 2 · Changement de mot de passe invalide](debug_lab_2_postgresql.md)
+- [Lab 3 · La disparition silencieuse ](debug_lab_3_stockage.md)
 

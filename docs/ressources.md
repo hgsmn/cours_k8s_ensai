@@ -8,6 +8,7 @@
 | [:material-folder-zip-outline: java-api.zip](ressources/java-api.zip) | API Java (Spring Boot) avec son `pom.xml` | TP 1 (exercice 2) |
 | [:material-folder-zip-outline: 3tier.zip](ressources/3tier.zip) | Manifests d'une application 3 tiers (frontend, backend, PostgreSQL, Ingress) | TP 3, TP 6 |
 | [:material-folder-zip-outline: 3tier.zip](ressources/sourcecode-3tier.zip) | Code source du frontend et du backend 3 tiers | TP 3, TP 6 |
+| [:material-folder-zip-outline: upload-api.zip](ressources/upload-api.zip) | API Python (FastAPI) de dépôt de fichiers, avec son `Dockerfile` | Debug lab 3 |
 
 ## Documentation de référence
 
