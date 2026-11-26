@@ -1088,3 +1088,107 @@ Catalogue complet : [operatorhub.io](https://operatorhub.io/)
 <!-- header: '' -->
 
 # Questions ?
+
+
+---
+
+# Annexe : le chemin réseau d'un pod à un autre
+
+**Objectif** : comprendre ce qui se passe réellement quand un pod appelle un Service.
+
+---
+
+## Le point de départ
+
+Un pod A (Service 1) appelle `http://svc-b:8080`, le Service devant les pods B (Service 2).
+
+
+- Sur le réseau, il n'y a que des **Pods** (une IP chacun) et des **Services** (une IP virtuelle, la ClusterIP).
+- Trois acteurs interviennent :
+  - **CoreDNS** : traduit le nom du Service en ClusterIP,
+  - **kube-proxy** : traduit la ClusterIP en IP d'un pod (DNAT),
+  - **le CNI** (Flannel, Calico, Cilium...) : achemine le paquet jusqu'au pod.
+
+---
+
+## Qui est CoreDNS ?
+
+CoreDNS est **une application Kubernetes comme une autre**, dans le namespace `kube-system` :
+
+- un **Deployment** `coredns` (en général 2 réplicas, sur des nœuds quelconques),
+- un **Service** `kube-dns` avec une ClusterIP fixe (souvent `10.96.0.10`),
+- une **ConfigMap** `coredns` contenant sa configuration (`Corefile`).
+
+CoreDNS **surveille l'API server** (Services, EndpointSlices) : il ne stocke rien lui-même.
+Les noms externes (`google.com`) sont transmis au DNS du nœud.
+
+---
+
+## Comment le pod sait-il interroger CoreDNS ?
+
+Le **kubelet** écrit le `/etc/resolv.conf` de chaque pod à sa création :
+
+```
+nameserver 10.96.0.10
+search default.svc.cluster.local svc.cluster.local cluster.local
+options ndots:5
+```
+
+- `nameserver` : la ClusterIP du Service `kube-dns`,
+- `search` : permet d'écrire `svc-b` au lieu de `svc-b.default.svc.cluster.local`.
+
+---
+
+## Les étapes communes aux deux cas
+
+1. **Résolution DNS** : le pod A demande `svc-b` à CoreDNS, qui répond `10.96.12.34` (la ClusterIP).
+2. **Sortie du pod** : le paquet vers `10.96.12.34:8080` sort par `eth0`, une extrémité d'une **paire veth** (câble virtuel) dont l'autre bout est dans le namespace réseau de l'hôte.
+3. **DNAT** : les règles iptables / IPVS écrites par **kube-proxy** remplacent la ClusterIP par l'IP d'un pod B choisi parmi les endpoints.
+
+**Le choix du pod B est toujours fait sur le nœud du pod A.**
+kube-proxy ne fait pas transiter le trafic : il programme seulement les règles du noyau.
+
+---
+
+## Cas 1 : les deux pods sont sur le même nœud
+
+![width:1050px](assets/reseau-pod-meme-noeud.svg)
+
+---
+
+## Cas 1 : ce qu'il faut retenir
+
+- Après le DNAT, le nœud reconnaît une IP de **son propre** bloc de pods.
+- Le paquet est remis directement dans la veth du pod B :
+  - via un **bridge Linux** (`cni0`, avec Flannel),
+  - ou via une **route /32 par pod** (Calico).
+- Pas d'encapsulation, pas de carte réseau physique : **le paquet ne quitte jamais la machine**.
+- Au retour, **conntrack** remet la ClusterIP comme source : A croit parler au Service.
+
+---
+
+## Cas 2 : les deux pods sont sur des nœuds différents
+
+![width:1050px](assets/reseau-pod-noeuds-differents.svg)
+
+---
+
+## Cas 2 : ce qu'il faut retenir
+
+- Après le DNAT, la table de routage indique que le bloc `10.244.2.0/24` est porté par le **nœud 2**.
+- Le paquet traverse le réseau physique, de deux manières possibles selon le CNI :
+  - **Overlay** (Cilium VXLAN/Geneve par exemple ) : le paquet pod → pod est **encapsulé** dans un paquet UDP nœud 1 → nœud 2, puis décapsulé à l'arrivée.
+  - **Routage natif** : le paquet circule tel quel, le réseau sait router les IP de pods.
+- La traduction inverse (pod B → ClusterIP) se fait **sur le nœud 1**, là où le DNAT a eu lieu.
+
+---
+
+## Attention : le DNS aussi passe par le réseau
+
+La requête DNS (étape 1) suit **exactement le même chemin** que l'appel principal :
+
+- `10.96.0.10` est une ClusterIP : elle subit le même **DNAT** vers un pod CoreDNS,
+- si ce pod CoreDNS est sur un autre nœud, la requête DNS est **encapsulée** et traverse le réseau,
+- même quand A et B sont sur le même nœud !
+
+Sur les gros clusters, on ajoute **NodeLocal DNSCache** : un DaemonSet de cache DNS sur chaque nœud (IP locale `169.254.20.10`), qui évite ces allers-retours.
